@@ -1,112 +1,181 @@
-Insight Journal
+Insight Journal 🧠📊
 
-Personal Emotional Analytics Dashboard
+A full-stack emotional analytics journal application that analyzes user mood from journal entries, tracks trends over time, and provides personalized insights and recommendations.
 
-1. Problem Statement
-Most journaling applications allow users to record thoughts but do not provide structured emotional analytics. Users lack visibility into mood patterns, volatility, or emerging emotional trends over time.
+🚀 Features
 
-Insight Journal bridges this gap by combining journaling with lightweight emotional analysis and trend detection.
+✍️ Add journal entries
 
-2. Solution Overview
-Insight Journal is a full-stack web application that:
-Stores journal entries
-Performs sentiment analysis on each entry
-Tracks mood averages over time
-Detects emotional trends and volatility
-Generates dynamic insights based on recent patterns
+😊 Automatic mood score using sentiment analysis
 
-The system provides a clean frontend dashboard backed by a REST-based Flask API.
+📈 Mood trend visualization with line chart
 
-3. Architecture
+📊 Average mood calculation
+
+💡 Dynamic insight generation
+
+🧘 Personalized recommendations
+
+🎨 Clean modern UI (React + Chart.js)
+
+🔗 REST API powered by Flask
+
+🏗 Tech Stack
 Backend
-Python (Flask)
-SQLite database
-REST API design
-Sentiment analysis via TextBlob
-Rolling-window trend and volatility detection
+
+Python
+
+Flask
+
+Flask-CORS
+
+TextBlob (Sentiment Analysis)
 
 Frontend
-Vanilla HTML/CSS/JavaScript
-Fetch-based API calls
-Chart.js for mood visualization
 
-Architecture Flow
-User Input → Flask API → Sentiment Processing → Database Storage → Aggregation Logic → Insight Generation → Frontend Dashboard
+React (Vite)
 
-4. Key Technical Decisions
-1. RESTful Backend Separation
-Frontend and backend are decoupled to ensure scalability and modularity.
+Chart.js
 
-2. Rolling-Window Mood Analysis
-Insights are generated using the last N entries instead of global averages to better reflect recent emotional shifts.
+react-chartjs-2
 
-3. Lightweight Sentiment Analysis
-TextBlob was chosen for simplicity and interpretability over heavier ML frameworks.
-
-4. SQLite for Simplicity
-Given single-user scope and evaluation constraints, SQLite ensures zero external dependency setup.
-
-5. Insight Logic
-The system calculates:
-Sentiment polarity per entry
-Average mood score
-Mood trend over time
-Volatility detection (large emotional swings)
-
-Based on these metrics, the application dynamically generates contextual insights such as:
-Stable emotional state
-Improving mood trend
-Declining emotional trend
-High emotional volatility
-
-6. AI Usage
-AI was used as a development assistant for:
-Refining backend logic
-Debugging edge cases
-Improving structure and modularity
-Reviewing architectural clarity
-
-All generated code was manually validated and tested before integration.
-
-7. Risks & Trade-offs
-Sentiment analysis is heuristic-based and may misinterpret nuanced language.
-Small datasets can produce unstable trends.
-Single-user system (no authentication layer).
-No model retraining or adaptive personalization.
-
-8. Future Improvements
-Multi-user authentication
-Persistent user profiles
-Improved NLP models (e.g., transformer-based sentiment models)
-Emotion classification beyond polarity
-Historical analytics dashboard
-Exportable emotional reports
-Real-time insight recalibration
-
-9. Setup Instructions
-1. Clone the Repository
-git clone <repo-link>
-cd insight-journal/backend
-
-2. Install Dependencies
-pip install -r requirements.txt
-
-3. Run Backend
-python app.py
-
-4. Launch Frontend
-Open frontend/index.html in a browser.
-
-10. Project Structure
-insight-journal/
+📂 Project Structure
+insight-journal-app/
 │
 ├── backend/
 │   ├── app.py
-│   ├── requirements.txt
+│   └── requirements.txt
 │
-├── frontend/
-│   └── index.html
+├── frontend-react/
+│   ├── package.json
+│   └── src/
+│       └── App.jsx
 │
-├── README.md
-├── ai_guidelines.md
-└── walkthrough.md
+└── README.md
+
+⚙️ Setup Instructions
+1️⃣ Backend Setup
+
+Navigate to backend:
+
+cd backend
+
+
+Create virtual environment (optional but recommended):
+
+python -m venv venv
+
+
+Activate environment:
+
+Windows
+
+venv\Scripts\activate
+
+
+Mac/Linux
+
+source venv/bin/activate
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Run server:
+
+python app.py
+
+
+Backend runs at:
+
+http://127.0.0.1:5000
+
+2️⃣ Frontend Setup
+
+Navigate to frontend:
+
+cd frontend-react
+
+
+Install dependencies:
+
+npm install
+
+
+Run development server:
+
+npm run dev
+
+
+Frontend runs at:
+
+http://localhost:5173
+
+📊 How It Works
+
+User submits a journal entry.
+
+Backend analyzes sentiment using TextBlob.
+
+Sentiment polarity is converted into a mood score.
+
+Entry is stored in memory.
+
+Frontend:
+
+Displays mood score
+
+Updates average mood
+
+Updates trend chart
+
+Generates insights & recommendations
+
+🧠 Mood Analysis Logic
+
+Polarity range: -1 (negative) to +1 (positive)
+
+Converted to mood score (0–100 scale)
+
+Average mood determines:
+
+Emotional trend
+
+Insight message
+
+Personalized recommendation
+
+📈 Example Use Case
+
+Track emotional patterns over days
+
+Identify emotional dips
+
+Receive simple actionable advice
+
+Visualize improvement over time
+
+
+
+📌 Future Improvements
+
+Database integration (PostgreSQL / MongoDB)
+
+User authentication
+
+Persistent data storage
+
+Deployment (Render / Vercel)
+
+AI-powered deeper emotional insights
+
+👤 Author
+
+Kratisha Hiran
+GitHub: https://github.com/kratisha434
+
+📜 License
+
+This project is for educational and demonstration purposes.
